@@ -7,8 +7,7 @@ const ContentLayout = ({ children }: { children: React.ReactNode }) => {
         <h1 className="text-2xl font-bold primary-text">Queue Orbit</h1>
         <Pathname />
       </div>
-
-      {children}
+      <div className="px-8 py-4">{children}</div>
     </div>
   );
 };

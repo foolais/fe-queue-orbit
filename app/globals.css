@@ -116,6 +116,16 @@
   .primary-text {
     @apply bg-linear-to-t from-sky-500 to-indigo-500 bg-clip-text text-transparent;
   }
+  .primary-border {
+    background: linear-gradient(#f5f5f5, #f5f5f5) padding-box,
+      linear-gradient(to top, #0ea5e9, #6366f1) border-box;
+    border: 3px dotted transparent;
+    border-radius: 0.75rem;
+    -webkit-border-radius: 0.75rem;
+    -moz-border-radius: 0.75rem;
+    -ms-border-radius: 0.75rem;
+    -o-border-radius: 0.75rem;
+  }
   .primary-bg {
     @apply bg-linear-to-t from-sky-500 to-indigo-500;
   }
