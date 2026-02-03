@@ -19,9 +19,7 @@ const Pathname = () => {
           key={route.name}
           href={route.path}
           className={cn(
-            path === route.path
-              ? "font-bold primary-text"
-              : "font-semibold text-gray-600",
+            path === route.path ? "font-bold " : "font-semibold text-gray-600",
             "hover:scale-105 transition-transform duration-300"
           )}
         >
