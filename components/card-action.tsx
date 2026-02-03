@@ -1,13 +1,15 @@
 import { Eye, Mic } from "lucide-react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 interface CardActionProps {
   title: string;
   description: string;
   type: "monitor" | "call";
+  href: string;
 }
 
-const CardAction = ({ title, description, type }: CardActionProps) => {
+const CardAction = ({ title, description, type, href }: CardActionProps) => {
   return (
     <section
       className={`neu shadow-hard-10 flex items-center justify-center flex-col p-8 w-lg ${
@@ -27,13 +29,15 @@ const CardAction = ({ title, description, type }: CardActionProps) => {
         </h3>
         <span className="uppercase text-center">{description}</span>
       </div>
-      <Button
-        className={`mt-6 px-8 uppercase font-semibold ${
-          type === "monitor" ? "bg-black text-white" : "bg-white text-black"
-        } `}
-      >
-        {type === "monitor" ? "Open Monitor" : "Start Session"}
-      </Button>
+      <Link href={href}>
+        <Button
+          className={`mt-6 px-8 uppercase font-semibold ${
+            type === "monitor" ? "bg-black text-white" : "bg-white text-black"
+          } `}
+        >
+          {type === "monitor" ? "Open Monitor" : "Start Session"}
+        </Button>
+      </Link>
     </section>
   );
 };

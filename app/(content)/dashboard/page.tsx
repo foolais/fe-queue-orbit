@@ -18,11 +18,13 @@ const DashboardPage = () => {
           title="Display Monitor"
           description="Open the public queue screen for lobby and waiting areas"
           type="monitor"
+          href="/monitor"
         />
         <CardAction
           title="Create a Call"
           description="Initiate a new voice call and add to the queue"
           type="call"
+          href="/call"
         />
       </div>
       <div className="my-20 w-full">
