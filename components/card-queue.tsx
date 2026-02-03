@@ -1,6 +1,7 @@
 import { PhoneCall, Plus } from "lucide-react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
+import DialogCreateQueue from "./dialog-create-queue";
 
 export const CardQueue = () => {
   return (
@@ -26,9 +27,7 @@ export const CreateCardQueue = () => {
         </h1>
       </CardContent>
       <CardFooter>
-        <Button className="cursor-pointer" variant={"outline"}>
-          Tambah <Plus className="size-4" />
-        </Button>
+        <DialogCreateQueue />
       </CardFooter>
     </Card>
   );
