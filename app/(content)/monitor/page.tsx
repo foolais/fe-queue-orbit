@@ -3,7 +3,7 @@ import CardQueue from "@/components/card-queue";
 
 const MonitorPage = () => {
   return (
-    <div className="flex items-start justify-between gap-16 py-4 w-full">
+    <div className="flex flex-col md:flex-row items-start justify-between gap-8 lg:gap-16 py-4 w-full">
       <CardCalling />
       <CardQueue />
     </div>

@@ -17,7 +17,7 @@ const ButtonDate = () => {
   if (!time) return null;
 
   return (
-    <div className="neu neu-hover font-semibold shadow-hard-6 bg-brutal-yellow py-1 px-4 text-black text-lg">
+    <div className="neu neu-hover font-semibold shadow-hard-6 bg-brutal-yellow py-1 px-2 md:px-4 text-black text-lg">
       {time.toLocaleTimeString()}
     </div>
   );

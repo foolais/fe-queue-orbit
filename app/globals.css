@@ -151,6 +151,9 @@
   .shadow-hard-10 {
     box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 1);
   }
+  .text-shadow {
+    text-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
   .neo-grid {
     background: #fff;
     background-image: linear-gradient(to right, #e5e5e5 1px, transparent 1px),

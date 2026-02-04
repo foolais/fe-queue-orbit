@@ -12,7 +12,7 @@ interface CardActionProps {
 const CardAction = ({ title, description, type, href }: CardActionProps) => {
   return (
     <section
-      className={`neu shadow-hard-10 flex items-center justify-center flex-col p-8 w-lg ${
+      className={`neu shadow-hard-10 flex items-center justify-center flex-col p-8 w-xs md:w-lg ${
         type === "monitor"
           ? "bg-primary text-black"
           : " bg-brutal-blue text-white"
@@ -23,11 +23,13 @@ const CardAction = ({ title, description, type, href }: CardActionProps) => {
       ) : (
         <Mic className="size-24" />
       )}
-      <div className="w-4/5 mx-auto text-center">
-        <h3 className="text-4xl font-extrabold tracking-tighter uppercase my-4">
+      <div className="md:w-11/12 lg:w-4/5 mx-auto text-center">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tighter uppercase my-4">
           {title}
         </h3>
-        <span className="uppercase text-center">{description}</span>
+        <span className="text-sm md:text-base uppercase text-center">
+          {description}
+        </span>
       </div>
       <Link href={href}>
         <Button

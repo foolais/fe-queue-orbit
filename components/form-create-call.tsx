@@ -53,7 +53,7 @@ const FormCreateCall = () => {
       />
       <Button
         type="submit"
-        className="mt-12 bg-brutal-blue uppercase w-full py-8 text-xl font-bold flex items-center justify-center gap-2"
+        className="mt-12 bg-brutal-blue uppercase w-full py-8 tex-sm sm:text-lg md:text-xl font-bold flex items-center justify-center gap-2"
       >
         <Phone />
         Launch call to monitor
