@@ -1,15 +1,18 @@
 import ButtonDate from "@/components/button-date";
 import { Mic } from "lucide-react";
+import Link from "next/link";
 
 const ContentLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="neo-grid min-h-screen p-8">
       {/* HEADER */}
       <div className="flex items-center justify-between">
-        <div className="neu neu-hover font-semibold uppercase shadow-hard-6 flex items-center justify-center py-1 px-8 bg-black text-white gap-2 text-xl">
-          <Mic className="size-6 text-primary" />
-          Queue Orbit
-        </div>
+        <Link href="/dashboard">
+          <div className="neu neu-hover font-semibold uppercase shadow-hard-6 flex items-center justify-center py-1 px-8 bg-black text-white gap-2 text-xl cursor-pointer">
+            <Mic className="size-6 text-primary" />
+            Queue Orbit
+          </div>
+        </Link>
         <ButtonDate />
       </div>
       <div className="my-4 min-h-[75vh]">{children}</div>
