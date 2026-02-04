@@ -36,7 +36,7 @@ const CardSystemOverview = () => {
       <div className="absolute -top-12 -left-1 w-max bg-black text-white py-2 px-4">
         <h2 className="text-xl font-bold">System Overview</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         {data.map((item, index) => (
           <CardDetail
             key={index}
@@ -65,7 +65,7 @@ const CardDetail = ({
 }: CardDetailProps) => {
   return (
     <div
-      className={`border-4 border-black py-4 px-8 h-48 aspect-video flex justify-center flex-col gap-2  ${className}`}
+      className={`border-4 border-black py-4 px-8 h-48 flex md:aspect-video lg:aspect-auto justify-center flex-col gap-2  ${className}`}
     >
       <h3 className="font-bold text-xl">{title}</h3>
       <p className="text-6xl font-extrabold">{data}</p>

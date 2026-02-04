@@ -29,19 +29,21 @@ const data = [
 
 const CardQueue = () => {
   return (
-    <div className="w-1/4 flex flex-col gap-4">
-      <div className="neu shadow-hard-6 bg-black text-white flex items-center gap-2 p-4">
+    <div className="w-1/4 hidden md:block flex-col gap-4 h-20">
+      <div className="neu shadow-hard-6 bg-black text-white flex items-center gap-2 p-2 lg:p-4">
         <History />
-        <h2 className="uppercase font-semibold">Recently called</h2>
+        <h2 className="uppercase font-semibold text-xs lg:text-base">
+          Recently called
+        </h2>
       </div>
-      <div className="max-h-[43vh] overflow-y-scroll flex flex-col gap-6">
+      <div className="max-h-[38vh] my-4 pr-2 overflow-y-scroll flex flex-col gap-6">
         {data.map((item, index) => (
           <CardDetail key={index} time={item.time} name={item.name} />
         ))}
       </div>
-      <div className="neu shadow-hard-6 bg-brutal-pink text-black flex flex-col items-center justify-center gap-2 p-6">
-        <Info className="size-8" />
-        <h3 className="uppercase font-semibold w-full md:w-3/4 mx-auto text-center">
+      <div className="neu shadow-hard-6 bg-brutal-pink text-black flex flex-col items-center justify-center gap-2 p-4">
+        <Info className="size-5 xl:size-8" />
+        <h3 className="uppercase font-semibold w-full lg:w-3/4 text-xs lg:text-sm xl:text-base mx-auto text-center">
           if your name is not listed, please contact the admin
         </h3>
       </div>
@@ -56,7 +58,7 @@ interface CardDetailProps {
 
 const CardDetail = ({ time, name }: CardDetailProps) => {
   return (
-    <div className="neu shadow-hard-6 bg-white p-6 flex flex-col gap-2">
+    <div className="neu shadow-hard-6 bg-white p-4 flex flex-col gap-2 text-sm lg:text-base">
       <span className="uppercase text-gray-500 font-semibold">
         {time} min ago
       </span>
