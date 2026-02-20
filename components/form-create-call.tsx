@@ -7,9 +7,13 @@ import { Field, FieldError, FieldLabel } from "./ui/field";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 const FormCreateCallSchema = z.object({
-  name: z.string().min(3, "must be at least 3 characters long"),
+  name: z
+    .string()
+    .min(3, "must be at least 3 characters long")
+    .max(50, "must be at most 50 characters long"),
 });
 
 const FormCreateCall = () => {
@@ -20,8 +24,35 @@ const FormCreateCall = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof FormCreateCallSchema>) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (values: z.infer<typeof FormCreateCallSchema>) => {
+    const { name } = values;
+    const { data: authUser } = await supabase.auth.signInAnonymously();
+
+    if (!authUser.user) {
+      alert("User not found");
+      return;
+    }
+
+    const { error } = await supabase
+      .from("queues")
+      .insert([
+        {
+          name,
+          status: "waiting",
+        },
+      ])
+      .select()
+      .single();
+
+    if (error) {
+      console.log({ error });
+      alert("Error creating queue");
+      return;
+    }
+
+    // alert("Queue created successfully");
+
+    form.reset();
   };
 
   return (
