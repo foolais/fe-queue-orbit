@@ -8,6 +8,7 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Phone } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 const FormCreateCallSchema = z.object({
   name: z
@@ -29,7 +30,28 @@ const FormCreateCall = () => {
     const { data: authUser } = await supabase.auth.signInAnonymously();
 
     if (!authUser.user) {
-      alert("User not found");
+      toast.error("Error creating queue, please try again later");
+      return;
+    }
+
+    const startOfToday = new Date();
+    startOfToday.setHours(0, 0, 0, 0);
+
+    const endOfToday = new Date(startOfToday);
+    endOfToday.setDate(startOfToday.getDate() + 1);
+
+    const { count, error: countError } = await supabase
+      .from("queues")
+      .select("*", { count: "exact", head: true })
+      .gte("created_at", startOfToday.toISOString())
+      .lte("created_at", endOfToday.toISOString());
+
+    if (countError) {
+      console.log({ countError });
+      toast.error("Error count queues, please try again later");
+      return;
+    } else if (count && count >= 30) {
+      toast.error("Have reached the limit of 30 queues per day");
       return;
     }
 
@@ -46,11 +68,11 @@ const FormCreateCall = () => {
 
     if (error) {
       console.log({ error });
-      alert("Error creating queue");
+      toast.error("Error creating queue, please try again later");
       return;
     }
 
-    // alert("Queue created successfully");
+    toast.success("Queue created successfully");
 
     form.reset();
   };
